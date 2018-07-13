@@ -9,6 +9,9 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         [SerializeField, FormerlySerializedAs("proxyVolumeComponent"), FormerlySerializedAs("m_ProxyVolumeReference")]
         ReflectionProxyVolumeComponent m_ProxyVolume = null;
 
+        [SerializeField]
+        InfluenceVolume m_InfluenceVolume = new InfluenceVolume();
+
         [SerializeField, FormerlySerializedAsAttribute("dimmer"), FormerlySerializedAsAttribute("m_Dimmer"), FormerlySerializedAsAttribute("multiplier")]
         float m_Multiplier = 1.0f;
         [SerializeField, FormerlySerializedAsAttribute("weight")]
@@ -24,6 +27,11 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         /// ProxyVolume currently used by this probe.
         /// </summary>
         public ReflectionProxyVolumeComponent proxyVolume { get { return m_ProxyVolume; } }
+
+        /// <summary>
+        /// InfluenceVolume of the probe.
+        /// </summary>
+        public InfluenceVolume influenceVolume { get { return m_InfluenceVolume; } }
 
         /// <summary>
         /// Multiplier factor of reflection (non PBR parameter).

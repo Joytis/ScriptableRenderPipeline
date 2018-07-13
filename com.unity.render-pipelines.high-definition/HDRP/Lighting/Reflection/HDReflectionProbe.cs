@@ -8,35 +8,57 @@ namespace UnityEngine.Experimental.Rendering
     public class HDReflectionProbe : HDProbe
     {
         [HideInInspector]
-        public float version = 1.1f;
+        public float version = 1.2f;
 
         ReflectionProbe m_LegacyProbe;
         ReflectionProbe legacyProbe { get { return m_LegacyProbe ?? (m_LegacyProbe = GetComponent<ReflectionProbe>()); } }
 
-        public ShapeType influenceShape;
-        public float influenceSphereRadius = 3.0f;
-        public float sphereReprojectionVolumeRadius = 1.0f;
-        public bool useSeparateProjectionVolume = false;
-        public Vector3 boxReprojectionVolumeSize = Vector3.one;
-        public Vector3 boxReprojectionVolumeCenter = Vector3.zero;
-        public float maxSearchDistance = 8.0f;
-        public Texture previewCubemap;
-        public Vector3 blendDistancePositive = Vector3.zero;
-        public Vector3 blendDistanceNegative = Vector3.zero;
-        public Vector3 blendNormalDistancePositive = Vector3.zero;
-        public Vector3 blendNormalDistanceNegative = Vector3.zero;
-        public Vector3 boxSideFadePositive = Vector3.one;
-        public Vector3 boxSideFadeNegative = Vector3.one;
+        //data only keeped for migration
+        [SerializeField]
+        Shape influenceShape;
+        [SerializeField]
+        float influenceSphereRadius = 3.0f;
+        [SerializeField]
+        float sphereReprojectionVolumeRadius = 1.0f;
+        [SerializeField]
+        bool useSeparateProjectionVolume = false;
+        [SerializeField]
+        Vector3 boxReprojectionVolumeSize = Vector3.one;
+        [SerializeField]
+        Vector3 boxReprojectionVolumeCenter = Vector3.zero;
+        [SerializeField]
+        float maxSearchDistance = 8.0f;
+        [SerializeField]
+        Texture previewCubemap;
+        [SerializeField]
+        Vector3 blendDistancePositive = Vector3.zero;
+        [SerializeField]
+        Vector3 blendDistanceNegative = Vector3.zero;
+        [SerializeField]
+        Vector3 blendNormalDistancePositive = Vector3.zero;
+        [SerializeField]
+        Vector3 blendNormalDistanceNegative = Vector3.zero;
+        [SerializeField]
+        Vector3 boxSideFadePositive = Vector3.one;
+        [SerializeField]
+        Vector3 boxSideFadeNegative = Vector3.one;
 
         //editor value that need to be saved for easy passing from simplified to advanced and vice et versa
         // /!\ must not be used outside editor code
-        [SerializeField] private Vector3 editorAdvancedModeBlendDistancePositive;
-        [SerializeField] private Vector3 editorAdvancedModeBlendDistanceNegative;
-        [SerializeField] private float editorSimplifiedModeBlendDistance;
-        [SerializeField] private Vector3 editorAdvancedModeBlendNormalDistancePositive;
-        [SerializeField] private Vector3 editorAdvancedModeBlendNormalDistanceNegative;
-        [SerializeField] private float editorSimplifiedModeBlendNormalDistance;
-        [SerializeField] private bool editorAdvancedModeEnabled;
+        [SerializeField]
+        Vector3 editorAdvancedModeBlendDistancePositive;
+        [SerializeField]
+        Vector3 editorAdvancedModeBlendDistanceNegative;
+        [SerializeField]
+        float editorSimplifiedModeBlendDistance;
+        [SerializeField]
+        Vector3 editorAdvancedModeBlendNormalDistancePositive;
+        [SerializeField]
+        Vector3 editorAdvancedModeBlendNormalDistanceNegative;
+        [SerializeField]
+        float editorSimplifiedModeBlendNormalDistance;
+        [SerializeField]
+        bool editorAdvancedModeEnabled;
 
         public Vector3 boxBlendCenterOffset { get { return (blendDistanceNegative - blendDistancePositive) * 0.5f; } }
         public Vector3 boxBlendSizeOffset { get { return -(blendDistancePositive + blendDistanceNegative); } }
@@ -50,8 +72,10 @@ namespace UnityEngine.Experimental.Rendering
 
         private void Awake()
         {
-            if(version < 1.1f)
+            if (version < 1.1f)
                 MigrateTo1Dot1();
+            if (version < 1.2f)
+                MigrateTo1Dot2();
         }
 
         void MigrateTo1Dot1()
@@ -59,6 +83,12 @@ namespace UnityEngine.Experimental.Rendering
             mode = legacyProbe.mode;
             refreshMode = legacyProbe.refreshMode;
             version = 1.1f;
+        }
+
+        void MigrateTo1Dot2()
+        {
+            influenceVolume.shape = influenceShape;
+            version = 1.2f;
         }
 
         public override ReflectionProbeMode mode
