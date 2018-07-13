@@ -1,5 +1,6 @@
 using UnityEngine.Serialization;
 using UnityEngine.Experimental.Rendering.HDPipeline;
+using UnityEngine.Rendering;
 
 namespace UnityEngine.Experimental.Rendering
 {
@@ -8,6 +9,9 @@ namespace UnityEngine.Experimental.Rendering
     {
         [HideInInspector]
         public float version = 1.0f;
+
+        ReflectionProbe m_LegacyProbe;
+        ReflectionProbe legacyProbe { get { return m_LegacyProbe ?? (m_LegacyProbe = GetComponent<ReflectionProbe>()); } }
 
         public ShapeType influenceShape;
         public float influenceSphereRadius = 3.0f;
@@ -42,5 +46,30 @@ namespace UnityEngine.Experimental.Rendering
 
         public float sphereBlendRadiusOffset { get { return -blendDistancePositive.x; } }
         public float sphereBlendNormalRadiusOffset { get { return -blendNormalDistancePositive.x; } }
+
+
+        [SerializeField]
+        bool migratedToHDProbeChild = false;
+
+        private void Awake()
+        {
+            if(!migratedToHDProbeChild)
+                MigrateToHDProbeChild();
+        }
+
+        void MigrateToHDProbeChild()
+        {
+            mode = legacyProbe.mode;
+            refreshMode = legacyProbe.refreshMode;
+            migratedToHDProbeChild = true;
+        }
+        public override ReflectionProbeRefreshMode refreshMode
+        {
+            set
+            {
+                base.refreshMode = value;
+                legacyProbe.refreshMode = value; //ensure compatibility till we capture without the legacy component
+            }
+        }
     }
 }
