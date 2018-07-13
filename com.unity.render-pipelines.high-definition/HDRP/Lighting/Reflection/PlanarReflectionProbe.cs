@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 namespace UnityEngine.Experimental.Rendering.HDPipeline
 {
     [ExecuteInEditMode]
-    public class PlanarReflectionProbe : MonoBehaviour
+    public class PlanarReflectionProbe : HDProbe
     {
         public enum CapturePositionMode
         {
