@@ -332,7 +332,7 @@ namespace UnityEditor.Experimental.Rendering
             if (e == null || !e.sceneViewEditing)
                 return;
 
-            var reflectionData = reflectionProbe.GetComponent<HDAdditionalReflectionData>();
+            var reflectionData = reflectionProbe.GetComponent<HDReflectionProbe>();
 
             switch (EditMode.editMode)
             {
@@ -358,7 +358,7 @@ namespace UnityEditor.Experimental.Rendering
             if (e == null || !e.sceneViewEditing)
                 return;
 
-            var reflectionData = reflectionProbe.GetComponent<HDAdditionalReflectionData>();
+            var reflectionData = reflectionProbe.GetComponent<HDReflectionProbe>();
 
             //Gizmos_Influence(reflectionProbe, reflectionData, e, false);
             Gizmos_InfluenceFade(reflectionProbe, reflectionData, null, InfluenceType.Standard, false);
@@ -375,12 +375,12 @@ namespace UnityEditor.Experimental.Rendering
             if (e == null || !e.sceneViewEditing)
                 return;
 
-            var reflectionData = reflectionProbe.GetComponent<HDAdditionalReflectionData>();
+            var reflectionData = reflectionProbe.GetComponent<HDReflectionProbe>();
             if (reflectionData != null)
                 HDReflectionProbeEditorUtility.ChangeVisibility(reflectionProbe, false);
         }
 
-        static void Gizmos_InfluenceFade(ReflectionProbe p, HDAdditionalReflectionData a, HDReflectionProbeEditor e, InfluenceType type, bool isEdit)
+        static void Gizmos_InfluenceFade(ReflectionProbe p, HDReflectionProbe a, HDReflectionProbeEditor e, InfluenceType type, bool isEdit)
         {
             var col = Gizmos.color;
             var mat = Gizmos.matrix;
@@ -447,7 +447,7 @@ namespace UnityEditor.Experimental.Rendering
             Gizmos.color = col;
         }
 
-        static void Gizmos_Influence(ReflectionProbe p, HDAdditionalReflectionData a, HDReflectionProbeEditor e, bool isEdit)
+        static void Gizmos_Influence(ReflectionProbe p, HDReflectionProbe a, HDReflectionProbeEditor e, bool isEdit)
         {
             var col = Gizmos.color;
             var mat = Gizmos.matrix;

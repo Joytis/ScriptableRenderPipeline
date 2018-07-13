@@ -70,7 +70,7 @@ namespace UnityEditor.Experimental.Rendering
             return p.boxSize.vector3Value * 0.5f;
         }
 
-        internal static void InitializeProbe(ReflectionProbe p, HDAdditionalReflectionData data)
+        internal static void InitializeProbe(ReflectionProbe p, HDReflectionProbe data)
         {
             var meshFilter = p.GetComponent<MeshFilter>() ?? p.gameObject.AddComponent<MeshFilter>();
             var meshRenderer = p.GetComponent<MeshRenderer>() ?? p.gameObject.AddComponent<MeshRenderer>();

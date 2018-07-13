@@ -4,7 +4,7 @@ using UnityEngine.Experimental.Rendering.HDPipeline;
 namespace UnityEngine.Experimental.Rendering
 {
     [RequireComponent(typeof(ReflectionProbe), typeof(MeshFilter), typeof(MeshRenderer))]
-    public class HDAdditionalReflectionData : MonoBehaviour
+    public class HDReflectionProbe : MonoBehaviour
     {
         [HideInInspector]
         public float version = 1.0f;

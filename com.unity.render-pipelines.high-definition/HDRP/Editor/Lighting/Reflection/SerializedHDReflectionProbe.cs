@@ -6,7 +6,7 @@ namespace UnityEditor.Experimental.Rendering
     public class SerializedHDReflectionProbe
     {
         internal ReflectionProbe target;
-        internal HDAdditionalReflectionData targetData;
+        internal HDReflectionProbe targetData;
 
         internal SerializedObject so;
         internal SerializedObject addso;
@@ -59,7 +59,7 @@ namespace UnityEditor.Experimental.Rendering
             this.addso = addso;
 
             target = (ReflectionProbe)so.targetObject;
-            targetData = target.GetComponent<HDAdditionalReflectionData>();
+            targetData = target.GetComponent<HDReflectionProbe>();
 
             mode = so.FindProperty("m_Mode");
             customBakedTexture = so.FindProperty("m_CustomBakedTexture");
@@ -78,20 +78,20 @@ namespace UnityEditor.Experimental.Rendering
             boxProjection = so.FindProperty("m_BoxProjection");
             legacyBlendDistance = so.FindProperty("m_BlendDistance");
 
-            influenceShape = addso.Find((HDAdditionalReflectionData d) => d.influenceShape);
-            influenceSphereRadius = addso.Find((HDAdditionalReflectionData d) => d.influenceSphereRadius);
-            useSeparateProjectionVolume = addso.Find((HDAdditionalReflectionData d) => d.useSeparateProjectionVolume);
-            boxReprojectionVolumeSize = addso.Find((HDAdditionalReflectionData d) => d.boxReprojectionVolumeSize);
-            boxReprojectionVolumeCenter = addso.Find((HDAdditionalReflectionData d) => d.boxReprojectionVolumeCenter);
-            sphereReprojectionVolumeRadius = addso.Find((HDAdditionalReflectionData d) => d.sphereReprojectionVolumeRadius);
-            weight = addso.Find((HDAdditionalReflectionData d) => d.weight);
-            multiplier = addso.Find((HDAdditionalReflectionData d) => d.multiplier);
-            blendDistancePositive = addso.Find((HDAdditionalReflectionData d) => d.blendDistancePositive);
-            blendDistanceNegative = addso.Find((HDAdditionalReflectionData d) => d.blendDistanceNegative);
-            blendNormalDistancePositive = addso.Find((HDAdditionalReflectionData d) => d.blendNormalDistancePositive);
-            blendNormalDistanceNegative = addso.Find((HDAdditionalReflectionData d) => d.blendNormalDistanceNegative);
-            boxSideFadePositive = addso.Find((HDAdditionalReflectionData d) => d.boxSideFadePositive);
-            boxSideFadeNegative = addso.Find((HDAdditionalReflectionData d) => d.boxSideFadeNegative);
+            influenceShape = addso.Find((HDReflectionProbe d) => d.influenceShape);
+            influenceSphereRadius = addso.Find((HDReflectionProbe d) => d.influenceSphereRadius);
+            useSeparateProjectionVolume = addso.Find((HDReflectionProbe d) => d.useSeparateProjectionVolume);
+            boxReprojectionVolumeSize = addso.Find((HDReflectionProbe d) => d.boxReprojectionVolumeSize);
+            boxReprojectionVolumeCenter = addso.Find((HDReflectionProbe d) => d.boxReprojectionVolumeCenter);
+            sphereReprojectionVolumeRadius = addso.Find((HDReflectionProbe d) => d.sphereReprojectionVolumeRadius);
+            weight = addso.Find((HDReflectionProbe d) => d.weight);
+            multiplier = addso.Find((HDReflectionProbe d) => d.multiplier);
+            blendDistancePositive = addso.Find((HDReflectionProbe d) => d.blendDistancePositive);
+            blendDistanceNegative = addso.Find((HDReflectionProbe d) => d.blendDistanceNegative);
+            blendNormalDistancePositive = addso.Find((HDReflectionProbe d) => d.blendNormalDistancePositive);
+            blendNormalDistanceNegative = addso.Find((HDReflectionProbe d) => d.blendNormalDistanceNegative);
+            boxSideFadePositive = addso.Find((HDReflectionProbe d) => d.boxSideFadePositive);
+            boxSideFadeNegative = addso.Find((HDReflectionProbe d) => d.boxSideFadeNegative);
 
             editorAdvancedModeBlendDistancePositive = addso.FindProperty("editorAdvancedModeBlendDistancePositive");
             editorAdvancedModeBlendDistanceNegative = addso.FindProperty("editorAdvancedModeBlendDistanceNegative");
@@ -133,7 +133,7 @@ namespace UnityEditor.Experimental.Rendering
                 Apply();
             }
 
-            proxyVolumeComponent = addso.Find((HDAdditionalReflectionData d) => d.proxyVolumeComponent);
+            proxyVolumeComponent = addso.Find((HDReflectionProbe d) => d.proxyVolumeComponent);
         }
 
         public void Update()

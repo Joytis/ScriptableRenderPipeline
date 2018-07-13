@@ -1805,7 +1805,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                         if (probeIndex < cullResults.visibleReflectionProbes.Count)
                         {
                             VisibleReflectionProbe probe = cullResults.visibleReflectionProbes[probeIndex];
-                            HDAdditionalReflectionData additional = probe.probe.GetComponent<HDAdditionalReflectionData>();
+                            HDReflectionProbe additional = probe.probe.GetComponent<HDReflectionProbe>();
 
                             // probe.texture can be null when we are adding a reflection probe in the editor
                             if (probe.texture == null || envLightCount >= k_MaxEnvLightsOnScreen)
@@ -2271,9 +2271,9 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             s_LightVolumeDataBuffer.SetData(m_lightList.lightVolumes);
         }
 
-        HDAdditionalReflectionData GetHDAdditionalReflectionData(VisibleReflectionProbe probe)
+        HDReflectionProbe GetHDAdditionalReflectionData(VisibleReflectionProbe probe)
         {
-            var add = probe.probe.GetComponent<HDAdditionalReflectionData>();
+            var add = probe.probe.GetComponent<HDReflectionProbe>();
             if (add == null)
             {
                 add = HDUtils.s_DefaultHDAdditionalReflectionData;

@@ -25,7 +25,7 @@ namespace UnityEditor.Experimental.Rendering
             for (var i = 0; i < targets.Length; ++i)
             {
                 var p = (ReflectionProbe)targets[i];
-                var a = (HDAdditionalReflectionData)m_AdditionalDataSerializedObject.targetObjects[i];
+                var a = (HDReflectionProbe)m_AdditionalDataSerializedObject.targetObjects[i];
                 HDReflectionProbeEditorUtility.InitializeProbe(p, a);
             }
 

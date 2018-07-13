@@ -21,7 +21,7 @@ namespace UnityEditor.Experimental.Rendering
 
             Undo.SetCurrentGroupName("Remove HD Reflection Probe");
             Undo.DestroyObjectImmediate(go.GetComponent<ReflectionProbe>());
-            Undo.DestroyObjectImmediate(go.GetComponent<HDAdditionalReflectionData>());
+            Undo.DestroyObjectImmediate(go.GetComponent<HDReflectionProbe>());
             Undo.DestroyObjectImmediate(go.GetComponent<MeshRenderer>());
             Undo.DestroyObjectImmediate(go.GetComponent<MeshFilter>());
         }
@@ -53,7 +53,7 @@ namespace UnityEditor.Experimental.Rendering
 
         void OnEnable()
         {
-            var additionalData = CoreEditorUtils.GetAdditionalData<HDAdditionalReflectionData>(targets);
+            var additionalData = CoreEditorUtils.GetAdditionalData<HDReflectionProbe>(targets);
             m_AdditionalDataSerializedObject = new SerializedObject(additionalData);
             m_SerializedHdReflectionProbe = new SerializedHDReflectionProbe(serializedObject, m_AdditionalDataSerializedObject);
             m_UIState.owner = this;
@@ -109,7 +109,7 @@ namespace UnityEditor.Experimental.Rendering
 
         void HideAdditionalComponents(bool visible)
         {
-            var adds = CoreEditorUtils.GetAdditionalData<HDAdditionalReflectionData>(targets);
+            var adds = CoreEditorUtils.GetAdditionalData<HDReflectionProbe>(targets);
             var flags = visible ? HideFlags.None : HideFlags.HideInInspector;
             for (var i = 0; i < targets.Length; ++i)
             {

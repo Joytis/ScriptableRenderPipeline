@@ -54,7 +54,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
     class VisibleReflectionProbeWrapper : ProbeWrapper
     {
         VisibleReflectionProbe probe;
-        HDAdditionalReflectionData additional;
+        HDReflectionProbe additional;
 
         public VisibleReflectionProbeWrapper(VisibleReflectionProbe probe)
         {
@@ -63,9 +63,9 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             reflectionProbe = probe.probe;
         }
 
-        static HDAdditionalReflectionData GetHDAdditionalReflectionData(VisibleReflectionProbe probe)
+        static HDReflectionProbe GetHDAdditionalReflectionData(VisibleReflectionProbe probe)
         {
-            var add = probe.probe.GetComponent<HDAdditionalReflectionData>();
+            var add = probe.probe.GetComponent<HDReflectionProbe>();
             if (add == null)
             {
                 add = HDUtils.s_DefaultHDAdditionalReflectionData;
