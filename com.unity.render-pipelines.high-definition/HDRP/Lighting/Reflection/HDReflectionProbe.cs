@@ -8,7 +8,7 @@ namespace UnityEngine.Experimental.Rendering
     public class HDReflectionProbe : HDProbe
     {
         [HideInInspector]
-        public float version = 1.0f;
+        public float version = 1.1f;
 
         ReflectionProbe m_LegacyProbe;
         ReflectionProbe legacyProbe { get { return m_LegacyProbe ?? (m_LegacyProbe = GetComponent<ReflectionProbe>()); } }
@@ -48,20 +48,17 @@ namespace UnityEngine.Experimental.Rendering
         public float sphereBlendNormalRadiusOffset { get { return -blendNormalDistancePositive.x; } }
 
 
-        [SerializeField]
-        bool migratedToHDProbeChild = false;
-
         private void Awake()
         {
-            if(!migratedToHDProbeChild)
-                MigrateToHDProbeChild();
+            if(version < 1.1f)
+                MigrateTo1Dot1();
         }
 
-        void MigrateToHDProbeChild()
+        void MigrateTo1Dot1()
         {
             mode = legacyProbe.mode;
             refreshMode = legacyProbe.refreshMode;
-            migratedToHDProbeChild = true;
+            version = 1.1f;
         }
 
         public override ReflectionProbeMode mode
