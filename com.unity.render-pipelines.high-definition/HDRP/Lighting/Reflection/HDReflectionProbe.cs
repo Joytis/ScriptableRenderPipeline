@@ -10,8 +10,6 @@ namespace UnityEngine.Experimental.Rendering
         public float version = 1.0f;
 
         public ShapeType influenceShape;
-        [FormerlySerializedAsAttribute("dimmer")]
-        public float multiplier = 1.0f;
         [Range(0.0f, 1.0f)]
         public float weight = 1.0f;
         public float influenceSphereRadius = 3.0f;
