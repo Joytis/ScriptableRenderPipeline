@@ -63,6 +63,15 @@ namespace UnityEngine.Experimental.Rendering
             refreshMode = legacyProbe.refreshMode;
             migratedToHDProbeChild = true;
         }
+
+        public override ReflectionProbeMode mode
+        {
+            set
+            {
+                base.mode = value;
+                legacyProbe.mode = value; //ensure compatibility till we capture without the legacy component
+            }
+        }
         public override ReflectionProbeRefreshMode refreshMode
         {
             set
