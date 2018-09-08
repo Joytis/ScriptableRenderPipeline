@@ -122,7 +122,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
 
                 m_LocalShadowmapTexture = RenderTexture.GetTemporary(shadowData.localShadowAtlasWidth,
                         shadowData.localShadowAtlasHeight, k_ShadowmapBufferBits, m_LocalShadowmapFormat);
-                m_LocalShadowmapTexture.filterMode = FilterMode.Bilinear;
+                m_LocalShadowmapTexture.filterMode = FilterMode.Point;
                 m_LocalShadowmapTexture.wrapMode = TextureWrapMode.Clamp;
 
                 SetRenderTarget(cmd, m_LocalShadowmapTexture, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store,

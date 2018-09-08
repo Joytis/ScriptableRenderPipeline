@@ -38,7 +38,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
 
             CommandBuffer cmd = CommandBufferPool.Get("Collect Shadows");
 
-            cmd.GetTemporaryRT(colorAttachmentHandle.id, descriptor, FilterMode.Bilinear);
+            cmd.GetTemporaryRT(colorAttachmentHandle.id, descriptor, FilterMode.Point);
             SetShadowCollectPassKeywords(cmd, ref renderingData.shadowData);
 
             // Note: The source isn't actually 'used', but there's an engine peculiarity (bug) that

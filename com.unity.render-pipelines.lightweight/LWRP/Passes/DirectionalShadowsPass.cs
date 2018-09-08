@@ -129,7 +129,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
 
                 m_DirectionalShadowmapTexture = RenderTexture.GetTemporary(shadowData.directionalShadowAtlasWidth,
                         shadowData.directionalShadowAtlasHeight, k_ShadowmapBufferBits, m_ShadowmapFormat);
-                m_DirectionalShadowmapTexture.filterMode = FilterMode.Bilinear;
+                m_DirectionalShadowmapTexture.filterMode = FilterMode.Point;
                 m_DirectionalShadowmapTexture.wrapMode = TextureWrapMode.Clamp;
                 SetRenderTarget(cmd, m_DirectionalShadowmapTexture, RenderBufferLoadAction.DontCare,
                     RenderBufferStoreAction.Store, ClearFlag.Depth, Color.black, TextureDimension.Tex2D);

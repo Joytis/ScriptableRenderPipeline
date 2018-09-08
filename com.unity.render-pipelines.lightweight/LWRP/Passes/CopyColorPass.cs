@@ -34,7 +34,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
             RenderTargetIdentifier colorRT = source.Identifier();
             RenderTargetIdentifier opaqueColorRT = destination.Identifier();
 
-            cmd.GetTemporaryRT(destination.id, opaqueDesc, renderingData.cameraData.opaqueTextureDownsampling == Downsampling.None ? FilterMode.Point : FilterMode.Bilinear);
+            cmd.GetTemporaryRT(destination.id, opaqueDesc, renderingData.cameraData.opaqueTextureDownsampling == Downsampling.None ? FilterMode.Point : FilterMode.Point);
             switch (downsampling)
             {
                 case Downsampling.None:
