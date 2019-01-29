@@ -175,7 +175,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
 
                 m_AdditionalLightsShadowmapTexture = RenderTexture.GetTemporary(shadowmapWidth, shadowmapHeight,
                     k_ShadowmapBufferBits, m_AdditionalShadowmapFormat);
-                m_AdditionalLightsShadowmapTexture.filterMode = FilterMode.Bilinear;
+                m_AdditionalLightsShadowmapTexture.filterMode = FilterMode.Point;
                 m_AdditionalLightsShadowmapTexture.wrapMode = TextureWrapMode.Clamp;
 
                 SetRenderTarget(cmd, m_AdditionalLightsShadowmapTexture, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store,

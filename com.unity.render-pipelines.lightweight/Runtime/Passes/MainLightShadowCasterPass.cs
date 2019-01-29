@@ -155,7 +155,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
 
                 m_MainLightShadowmapTexture = RenderTexture.GetTemporary(shadowData.mainLightShadowmapWidth,
                     shadowData.mainLightShadowmapHeight, k_ShadowmapBufferBits, m_ShadowmapFormat);
-                m_MainLightShadowmapTexture.filterMode = FilterMode.Bilinear;
+                m_MainLightShadowmapTexture.filterMode = FilterMode.Point;
                 m_MainLightShadowmapTexture.wrapMode = TextureWrapMode.Clamp;
                 SetRenderTarget(cmd, m_MainLightShadowmapTexture, RenderBufferLoadAction.DontCare,
                     RenderBufferStoreAction.Store, ClearFlag.Depth, Color.black, TextureDimension.Tex2D);
