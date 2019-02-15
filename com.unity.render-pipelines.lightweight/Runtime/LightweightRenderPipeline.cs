@@ -32,6 +32,8 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
             public static int _ScaledScreenParams;
         }
 
+        public static event Action afterEverything;
+
         public const string k_ShaderTagName = "LightweightPipeline";
 
         private static IRendererSetup s_DefaultRendererSetup;
@@ -45,6 +47,8 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
                 return s_DefaultRendererSetup;
             }
         }
+
+        // public static event Action afterEverything;
 
         const string k_RenderCameraTag = "Render Camera";
         CullResults m_CullResults;
@@ -220,6 +224,8 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
                 renderer.Clear();
                 setupToUse.Setup(renderer, ref renderingData);
                 renderer.Execute(context, ref renderingData);
+
+                afterEverything?.Invoke();
             }
 
             context.ExecuteCommandBuffer(cmd);
