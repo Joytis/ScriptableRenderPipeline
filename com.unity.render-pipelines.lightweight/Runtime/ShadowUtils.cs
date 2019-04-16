@@ -168,7 +168,7 @@ namespace UnityEngine.Rendering.LWRP
         public static RenderTexture GetTemporaryShadowTexture(int width, int height, int bits)
         {
             var shadowTexture = RenderTexture.GetTemporary(width, height, bits, m_ShadowmapFormat);
-            shadowTexture.filterMode = m_ForceShadowPointSampling ? FilterMode.Point : FilterMode.Bilinear;
+            shadowTexture.filterMode = m_ForceShadowPointSampling ? FilterMode.Point : FilterMode.Point;
             shadowTexture.wrapMode = TextureWrapMode.Clamp;
 
             return shadowTexture;

@@ -27,7 +27,7 @@ namespace UnityEngine.Rendering.LWRP
 
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
         {
-            cmd.GetTemporaryRT(m_ScreenSpaceShadowmap.id, m_RenderTextureDescriptor, FilterMode.Bilinear);
+            cmd.GetTemporaryRT(m_ScreenSpaceShadowmap.id, m_RenderTextureDescriptor, FilterMode.Point);
 
             // Note: The source isn't actually 'used', but there's an engine peculiarity (bug) that
             // doesn't like null sources when trying to determine a stereo-ized blit.  So for proper
