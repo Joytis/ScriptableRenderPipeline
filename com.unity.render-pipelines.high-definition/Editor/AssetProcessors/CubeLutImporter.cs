@@ -35,7 +35,7 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
 
             var tex = new Texture3D(lutSize, lutSize, lutSize, TextureFormat.RGBAHalf, false)
             {
-                filterMode = FilterMode.Bilinear,
+                filterMode = FilterMode.Point,
                 wrapMode = TextureWrapMode.Clamp,
                 anisoLevel = 0
             };

@@ -565,7 +565,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                         var settings = new TextureImporterSettings();
                         importer.ReadTextureSettings(settings);
                         settings.sRGBTexture = false;
-                        settings.filterMode = FilterMode.Bilinear;
+                        settings.filterMode = FilterMode.Point;
                         settings.generateCubemap = TextureImporterGenerateCubemap.AutoCubemap;
                         settings.cubemapConvolution = TextureImporterCubemapConvolution.None;
                         settings.seamlessCubemap = false;
@@ -586,7 +586,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                         if (importer == null)
                             return;
                         importer.sRGBTexture = false;
-                        importer.filterMode = FilterMode.Bilinear;
+                        importer.filterMode = FilterMode.Point;
                         importer.mipmapEnabled = false;
                         importer.textureCompression = hd.currentPlatformRenderPipelineSettings.lightLoopSettings.planarReflectionCacheCompressed
                             ? TextureImporterCompression.Compressed

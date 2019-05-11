@@ -136,7 +136,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             {
                 m_TempColorTargets[kernelIndex] = RTHandles.Alloc(
                     Vector2.one * 0.5f,
-                    filterMode: FilterMode.Bilinear,
+                    filterMode: FilterMode.Point,
                     colorFormat: destination.graphicsFormat,
                     enableRandomWrite: true,
                     useMipMap: false,
@@ -167,7 +167,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                 {
                     m_TempDownsamplePyramid[kernelIndex] = RTHandles.Alloc(
                     Vector2.one * 0.5f,
-                    filterMode: FilterMode.Bilinear,
+                    filterMode: FilterMode.Point,
                     colorFormat: destination.graphicsFormat,
                     enableRandomWrite: false,
                     useMipMap: false,

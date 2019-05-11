@@ -136,7 +136,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                 slices: m_LutSize,
                 depthBufferBits: DepthBits.None,
                 colorFormat: lutFormat,
-                filterMode: FilterMode.Bilinear,
+                filterMode: FilterMode.Point,
                 wrapMode: TextureWrapMode.Clamp,
                 anisoLevel: 0,
                 useMipMap: false,
@@ -609,7 +609,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                 m_ExposureCurveTexture = new Texture2D(k_ExposureCurvePrecision, 1, TextureFormat.RHalf, false, true)
                 {
                     name = "Exposure Curve",
-                    filterMode = FilterMode.Bilinear,
+                    filterMode = FilterMode.Point,
                     wrapMode = TextureWrapMode.Clamp
                 };
             }
@@ -744,7 +744,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             {
                 return rtHandleSystem.Alloc(
                     Vector2.one, depthBufferBits: DepthBits.None,
-                    filterMode: FilterMode.Bilinear, colorFormat: k_ColorFormat,
+                    filterMode: FilterMode.Point, colorFormat: k_ColorFormat,
                     enableRandomWrite: true, xrInstancing: true, name: "TAA History"
                 );
             }
@@ -1799,7 +1799,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                     m_InternalSpectralLut = new Texture2D(3, 1, TextureFormat.RGB24, false)
                     {
                         name = "Chromatic Aberration Spectral LUT",
-                        filterMode = FilterMode.Bilinear,
+                        filterMode = FilterMode.Point,
                         wrapMode = TextureWrapMode.Clamp,
                         anisoLevel = 0,
                         hideFlags = HideFlags.DontSave

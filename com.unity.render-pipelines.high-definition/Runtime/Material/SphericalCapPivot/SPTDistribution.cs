@@ -54,7 +54,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                 {
                     hideFlags = HideFlags.HideAndDontSave,
                     wrapMode = TextureWrapMode.Clamp,
-                    filterMode = FilterMode.Bilinear,
+                    filterMode = FilterMode.Point,
                     name = CoreUtils.GetTextureAutoName(k_PivotLUTResolution, k_PivotLUTResolution, TextureFormat.RGHalf, depth: 0, dim: TextureDimension.Tex2D, name: "PIVOT_LUT")
                 };
 

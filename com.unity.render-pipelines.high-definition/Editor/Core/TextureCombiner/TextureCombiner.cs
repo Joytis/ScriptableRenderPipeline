@@ -262,7 +262,7 @@ public class TextureCombiner
                 rawImporter.textureType = TextureImporterType.Default;
                 rawImporter.mipmapEnabled = false;
                 rawImporter.isReadable = true;
-                rawImporter.filterMode = m_bilinearFilter ? FilterMode.Bilinear : FilterMode.Point;
+                rawImporter.filterMode = m_bilinearFilter ? FilterMode.Point : FilterMode.Point;
                 rawImporter.npotScale = TextureImporterNPOTScale.None;
                 rawImporter.wrapMode = TextureWrapMode.Clamp;
 

@@ -145,7 +145,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             // Create render textures where we will render the FGD tables
             m_preIntegratedFGD_Ward = new RenderTexture(128, 128, 0, RenderTextureFormat.ARGB2101010, RenderTextureReadWrite.Linear);
             m_preIntegratedFGD_Ward.hideFlags = HideFlags.HideAndDontSave;
-            m_preIntegratedFGD_Ward.filterMode = FilterMode.Bilinear;
+            m_preIntegratedFGD_Ward.filterMode = FilterMode.Point;
             m_preIntegratedFGD_Ward.wrapMode = TextureWrapMode.Clamp;
             m_preIntegratedFGD_Ward.hideFlags = HideFlags.DontSave;
             m_preIntegratedFGD_Ward.name = CoreUtils.GetRenderTargetAutoName(128, 128, 1, RenderTextureFormat.ARGB2101010, "PreIntegratedFGD_Ward");
@@ -153,7 +153,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
             m_preIntegratedFGD_CookTorrance = new RenderTexture(128, 128, 0, RenderTextureFormat.ARGB2101010, RenderTextureReadWrite.Linear);
             m_preIntegratedFGD_CookTorrance.hideFlags = HideFlags.HideAndDontSave;
-            m_preIntegratedFGD_CookTorrance.filterMode = FilterMode.Bilinear;
+            m_preIntegratedFGD_CookTorrance.filterMode = FilterMode.Point;
             m_preIntegratedFGD_CookTorrance.wrapMode = TextureWrapMode.Clamp;
             m_preIntegratedFGD_CookTorrance.hideFlags = HideFlags.DontSave;
             m_preIntegratedFGD_CookTorrance.name = CoreUtils.GetRenderTargetAutoName(128, 128, 1, RenderTextureFormat.ARGB2101010, "PreIntegratedFGD_CookTorrance");
@@ -165,7 +165,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             {
                 hideFlags = HideFlags.HideAndDontSave,
                 wrapMode = TextureWrapMode.Clamp,
-                filterMode = FilterMode.Bilinear,
+                filterMode = FilterMode.Point,
                 name = CoreUtils.GetTextureAutoName(LTCAreaLight.k_LtcLUTResolution, LTCAreaLight.k_LtcLUTResolution, TextureFormat.RGBAHalf, depth: 2, dim: TextureDimension.Tex2DArray, name: "LTC_LUT")
             };
 

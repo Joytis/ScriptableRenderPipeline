@@ -102,7 +102,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
             // Destination targets
             m_AmbientOcclusionTex = RTHandles.Alloc(Vector2.one,
-                filterMode: FilterMode.Bilinear,
+                filterMode: FilterMode.Point,
                 colorFormat: GraphicsFormat.R8_UNorm,
                 enableRandomWrite: true,
                 xrInstancing: true,
@@ -113,7 +113,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             if (supportMSAA)
             {
                 m_MultiAmbientOcclusionTex = RTHandles.Alloc(Vector2.one,
-                    filterMode: FilterMode.Bilinear,
+                    filterMode: FilterMode.Point,
                     colorFormat: GraphicsFormat.R8G8_UNorm,
                     enableRandomWrite: true,
                     xrInstancing: true,

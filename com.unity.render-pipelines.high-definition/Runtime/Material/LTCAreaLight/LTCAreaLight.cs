@@ -74,7 +74,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                 {
                     hideFlags = HideFlags.HideAndDontSave,
                     wrapMode = TextureWrapMode.Clamp,
-                    filterMode = FilterMode.Bilinear,
+                    filterMode = FilterMode.Point,
                     name = CoreUtils.GetTextureAutoName(k_LtcLUTResolution, k_LtcLUTResolution, TextureFormat.RGBAHalf, depth: 2, dim: TextureDimension.Tex2DArray, name: "LTC_LUT")
                 };
 

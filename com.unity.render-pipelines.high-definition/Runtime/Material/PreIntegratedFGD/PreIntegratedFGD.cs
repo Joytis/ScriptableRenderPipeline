@@ -62,7 +62,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                         m_PreIntegratedFGDMaterial[(int)index] = CoreUtils.CreateEngineMaterial(hdrp.renderPipelineResources.shaders.preIntegratedFGD_GGXDisneyDiffusePS);
                         m_PreIntegratedFGD[(int)index] = new RenderTexture(res, res, 0, RenderTextureFormat.ARGB2101010, RenderTextureReadWrite.Linear);
                         m_PreIntegratedFGD[(int)index].hideFlags = HideFlags.HideAndDontSave;
-                        m_PreIntegratedFGD[(int)index].filterMode = FilterMode.Bilinear;
+                        m_PreIntegratedFGD[(int)index].filterMode = FilterMode.Point;
                         m_PreIntegratedFGD[(int)index].wrapMode = TextureWrapMode.Clamp;
                         m_PreIntegratedFGD[(int)index].name = CoreUtils.GetRenderTargetAutoName(res, res, 1, RenderTextureFormat.ARGB2101010, "preIntegratedFGD_GGXDisneyDiffuse");
                         m_PreIntegratedFGD[(int)index].Create();
@@ -72,7 +72,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
                         m_PreIntegratedFGDMaterial[(int)index] = CoreUtils.CreateEngineMaterial(hdrp.renderPipelineResources.shaders.preIntegratedFGD_CharlieFabricLambertPS);
                         m_PreIntegratedFGD[(int)index] = new RenderTexture(res, res, 0, RenderTextureFormat.ARGB2101010, RenderTextureReadWrite.Linear);
                         m_PreIntegratedFGD[(int)index].hideFlags = HideFlags.HideAndDontSave;
-                        m_PreIntegratedFGD[(int)index].filterMode = FilterMode.Bilinear;
+                        m_PreIntegratedFGD[(int)index].filterMode = FilterMode.Point;
                         m_PreIntegratedFGD[(int)index].wrapMode = TextureWrapMode.Clamp;
                         m_PreIntegratedFGD[(int)index].name = CoreUtils.GetRenderTargetAutoName(res, res, 1, RenderTextureFormat.ARGB2101010, "preIntegratedFGD_CharlieFabricLambert");
                         m_PreIntegratedFGD[(int)index].Create();
